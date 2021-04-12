@@ -1,4 +1,4 @@
 module.exports = (req, res) => {
   const name = req.query.name || "stranger";
-  res.status(200).json({ req: req.body.name });
+  res.status(200).send({ req: req.body.name });
 };
