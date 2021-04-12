@@ -1,4 +1,4 @@
 module.exports = (req, res) => {
-  const { name } = req.body;
-  res.status(200).send(`from the body your name is ${name}`);
+  if (req.method === "POST") res.status(200).json({ message: "eh post" });
+  else res.status(200).json({ message: "outra coisa" });
 };
