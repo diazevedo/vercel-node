@@ -59,6 +59,10 @@ app.post("/api/files", upload.single("file"), (req, res) => {
   });
 });
 
+app.get("/", function (req, res) {
+  res.send("Hello World!");
+});
+
 app.get("/api/files", (req, res) => {
   gfs.find().toArray((err, files) => {
     // check if files
