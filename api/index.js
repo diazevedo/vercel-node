@@ -14,8 +14,20 @@ dotenv.config({ path: "./../.env" });
 app.use(express.json());
 app.use(cors());
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
+// app.get("/", function (req, res) {
+//   res.send("Hello World!");
+// });
+
+app.get("/api", (req, res) => {
+  // const path = `/api/item/${v4()}`;
+  // res.setHeader("Content-Type", "text/html");
+  // res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+  res.end(`Hello! Go to item: <a href="sdsdsd">dssdsd</a>`);
+});
+
+app.get("/api/item/:slug", (req, res) => {
+  const { slug } = req.params;
+  res.end(`Item: ${slug}`);
 });
 
 // // connection
@@ -92,6 +104,6 @@ app.get("/", function (req, res) {
 //     });
 // });
 
-app.listen(process.env.PORT, () => {
-  console.log("server started on " + process.env.PORT);
-});
+// app.listen(process.env.PORT, () => {
+//   console.log("server started on " + process.env.PORT);
+// });
